@@ -3,6 +3,10 @@
 -- Add any additional options here
 vim.g.mapleader = " "
 
+-- Python configuration
+vim.g.lazyvim_python_lsp = "pyright"
+vim.g.lazyvim_python_ruff = "ruff"
+
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -36,3 +40,6 @@ vim.opt.mouse = ""
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+
+-- Python stuffs
+vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("poetry env info -p")) .. "/bin/python"

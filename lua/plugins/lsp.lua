@@ -134,4 +134,19 @@ return {
 			table.insert(opts.sources, { name = "emoji" })
 		end,
 	},
+  {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      pyright = {
+        settings = {
+          python = {
+            pythonPath = "/home/vphoa/code/zodc/zodc-be/.venv", -- Replace with `poetry env info --path`
+          },
+        },
+      },
+    },
+  },
+}
+
 }

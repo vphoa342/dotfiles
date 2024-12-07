@@ -61,7 +61,7 @@ vim.keymap.set("v", "<C-v>", '"+P', opts)  -- Paste visual mode
 vim.keymap.set("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- Find globally
-vim.keymap.set("n", "<C-S-f>", ":Telescope live_grep<CR>", opts)
+vim.keymap.set("n", "<C-A-f>", ":Telescope live_grep<CR>", opts)
 
 -- Replace (Ctrl+h for current file, Ctrl+Shift+h for global replace)
 vim.keymap.set("n", "<C-h>", ":Telescope current_buffer_fuzzy_find theme=ivy<CR>", opts)
@@ -79,3 +79,19 @@ vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", opts)
 -- Switch between tabs using Alt + arrow keys
 vim.keymap.set("n", "<A-Left>", ":tabprev<CR>", opts)
 vim.keymap.set("n", "<A-Right>", ":tabnext<CR>", opts)
+
+-- LSP actions
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, opts)
+
+-- Formatting
+vim.keymap.set("n", "<Leader>f", function()
+  vim.lsp.buf.format({ async = true })
+end, opts)
+
+-- Diagnostics
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
